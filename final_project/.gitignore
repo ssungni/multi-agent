@@ -1,0 +1,28 @@
+# python generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+*.DS_Store
+.mypy_cache/
+
+# venv
+.venv
+
+# environment variables
+.env
+.env.local
+
+# Keep .env.example
+!.env.example
+
+# ipynb
+*.ipynb
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.cursorrules

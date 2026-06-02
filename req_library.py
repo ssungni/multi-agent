@@ -12,4 +12,4 @@ def get_example():
     print(response.text)
 
 if __name__ == "__main__":
-    get_example()
+    get_example(

@@ -1,0 +1,21 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff-check
+        language: system
+        entry: rye run ruff check --fix
+        pass_filenames: false
+        always_run: true
+      - id: ruff-format
+        name: ruff-format
+        language: system
+        entry: rye run ruff format
+        pass_filenames: false
+        always_run: true
+      - id: mypy
+        name: mypy
+        language: system
+        entry: rye run mypy lecture --cache-dir=/dev/null --no-incremental
+        pass_filenames: false
+        always_run: true

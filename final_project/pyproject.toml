@@ -1,0 +1,101 @@
+[project]
+name = "lecture"
+version = "0.1.0"
+description = "LLM Agent 개발 강의 코드"
+dependencies = [
+    "litellm>=1.80.0",
+    "langfuse==2.60.9",
+    "pydantic>=2.9.2",
+    "pydantic-settings>=2.4.0",
+    "tiktoken>=0.7.0",
+    "python-dotenv>=1.0.0",
+    "streamlit>=1.32.0",
+    "httpx>=0.27.0",
+    "beautifulsoup4>=4.12.0",
+]
+readme = "README.md"
+requires-python = ">= 3.12"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+virtual = true
+dev-dependencies = [
+    "ruff>=0.14.9",
+    "mypy>=1.19.0",
+    "pre-commit>=4.5.0",
+    "pytest>=9.0.2",
+    "pytest-asyncio>=1.3.0",
+]
+
+[tool.rye.scripts]
+# 강의별 실행 스크립트
+lec02-01 = { cmd = "python -m lec02_01_litellm.main" }
+lec02-02 = { cmd = "python -m lec02_02_langfuse.main" }
+lec02-04 = { cmd = "python -m lec02_04_streamlit.main" }
+lec04-01 = { cmd = "python -m lec04_01_base_agent.main" }
+lec04-02 = { cmd = "python -m lec04_02_tools.main" }
+lec05-01 = { cmd = "python -m lec05_01_outliner.main" }
+lec05-02 = { cmd = "python -m lec05_02_researcher.main" }
+lec05-03 = { cmd = "python -m lec05_03_writer.main" }
+lec06-01 = { cmd = "python -m lec06_01_orchestrator.main" }
+lec06-02 = { cmd = "python -m lec06_02_hitl.main" }
+lec07-02 = { cmd = "python -m lec07_02_ask_user.main" }
+lec08-04 = { cmd = "python -m lec08_04_cost.main" }
+lec08-05 = { cmd = "python -m lec08_05_context.main" }
+lec08-05-01 = { cmd = "python -m lec08_05_01_file_comm.main" }
+lec08-05-02 = { cmd = "python -m lec08_05_02_context.main" }
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.ruff]
+line-length = 100
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "__pycache__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "ASYNC", "C4", "DTZ", "INP", "PIE", "PT", "Q", "RSE", "RET", "SLF", "SIM", "ARG", "PTH", "I"]
+ignore = ["E203", "E501", "ASYNC109"]
+unfixable = ["F401", "W605"]
+
+[tool.mypy]
+ignore_missing_imports = true
+check_untyped_defs = true
+plugins = "pydantic.mypy"
+explicit_package_bases = true
+mypy_path = "$MYPY_CONFIG_FILE_DIR"
+namespace_packages = true
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
