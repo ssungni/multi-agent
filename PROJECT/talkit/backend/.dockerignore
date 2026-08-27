@@ -1,0 +1,7 @@
+.git
+log
+tmp
+storage
+.env
+.env.*
+spec/examples.txt

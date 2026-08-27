@@ -1,0 +1,3 @@
+cd C:\Users\User\OneDrive\Desktop\day_night\reve-clone
+npm run dev
+그 후 http://localhost:3000 접속. 종료는 터미널에서 Ctrl+C.

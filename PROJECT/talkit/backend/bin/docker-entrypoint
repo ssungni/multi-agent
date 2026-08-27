@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+if [ -f tmp/pids/server.pid ]; then
+  rm tmp/pids/server.pid
+fi
+
+# 서버로 기동될 때만 DB 생성/마이그레이션을 자동 실행한다 (rspec 등 다른 커맨드는 건너뜀)
+if [ "${1}" == "./bin/rails" ] && [ "${2}" == "server" ]; then
+  bundle exec ./bin/rails db:prepare
+fi
+
+# BUNDLE_PATH가 기본 GEM_HOME과 다른 경로라 plain require가 gem을 못 찾을 수 있으므로
+# bundle exec를 통해 LOAD_PATH를 명시적으로 설정한다.
+exec bundle exec "${@}"

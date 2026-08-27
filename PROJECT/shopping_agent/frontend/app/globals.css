@@ -1,0 +1,325 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #0064ff;
+  --primary-dark: #0050cc;
+  --primary-light: #e8f3ff;
+  --bg: #f2f4f6;
+  --surface: #ffffff;
+  --border: #f2f4f6;
+  --border-strong: #e5e8eb;
+  --text: #191f28;
+  --text-muted: #8b95a1;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Pretendard", system-ui, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 0 0 4px;
+}
+
+.container {
+  max-width: 420px;
+  margin: 64px auto;
+  padding: 32px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border-strong);
+}
+
+.container > p {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.container form {
+  margin-top: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  background: none;
+  text-decoration: underline;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+input {
+  padding: 12px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  background: var(--surface);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+button:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+button:disabled {
+  background: var(--border-strong);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.error {
+  color: #f04452;
+  font-size: 13px;
+  background: #fff0f1;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.home-links {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.home-links a {
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 14px;
+}
+
+.home-links a:hover {
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+}
+
+/* 채팅 화면 */
+
+.chat-layout {
+  display: flex;
+  gap: 16px;
+  max-width: 920px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 82vh;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border-strong);
+  overflow: hidden;
+}
+
+.chat-main > div:first-child {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface);
+}
+
+.chat-main > div:first-child strong {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.chat-main > div:first-child button {
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 13px;
+  padding: 6px 12px;
+}
+
+.chat-main > div:first-child button:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.msg {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.msg.user {
+  align-self: flex-end;
+  background: var(--primary);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.msg.assistant {
+  align-self: flex-start;
+  background: var(--bg);
+  color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+
+.product-card {
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-top: 6px;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-card button {
+  padding: 7px 14px;
+  font-size: 13px;
+}
+
+.product-card button:last-child {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-strong);
+}
+
+.product-card button:last-child:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.chat-input {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.chat-input input {
+  flex: 1;
+  border-radius: 10px;
+}
+
+.chat-input button {
+  border-radius: 10px;
+  padding: 12px 22px;
+}
+
+.cart-panel {
+  width: 250px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border-strong);
+  padding: 18px;
+  height: fit-content;
+}
+
+.cart-panel h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.cart-item {
+  font-size: 13px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.cart-item:last-of-type {
+  border-bottom: none;
+}
+
+.cart-panel button {
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  padding: 10px;
+}
+
+.cart-panel button:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+}
